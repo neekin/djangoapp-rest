@@ -1,5 +1,5 @@
-from rest_framework import viewsets
-from rest_framework import pagination
+from rest_framework import viewsets,mixins,pagination
+
 
 from .serializer import UserProfileSerializer
 from .models   import UserProfile
@@ -11,7 +11,7 @@ class Page(pagination.PageNumberPagination):
     max_page_size = 100
 
 
-class UserProfileListViewset(viewsets.ModelViewSet):
+class UserProfileListViewset(mixins.ListModelMixin,viewsets.GenericViewSet):
      queryset  = UserProfile.objects.all()
      serializer_class = UserProfileSerializer
      pagination_class = Page
