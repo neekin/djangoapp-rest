@@ -21,9 +21,11 @@ from rest_framework import routers
 # from rest_framework.authtoken import views
 from rest_framework_jwt.views import obtain_jwt_token
 from users.views import UserProfileListViewset
+from details.views import DetailListViewset
 
 router = routers.DefaultRouter()
 router.register(r'users', UserProfileListViewset)
+router.register(r'details', DetailListViewset)
 
 
 import xadmin
