@@ -1,4 +1,4 @@
-from rest_framework import viewsets,mixins,pagination ,filters
+from rest_framework import viewsets,mixins,pagination,filters
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializer import UserProfileSerializer
