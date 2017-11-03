@@ -5,6 +5,8 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 # Create your models here.
+
+
 class Detail(models.Model):
     title = models.CharField(max_length=100, verbose_name="标题")
     content = models.CharField(max_length=1000, verbose_name="正文")

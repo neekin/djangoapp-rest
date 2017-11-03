@@ -52,9 +52,6 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
@@ -63,7 +60,14 @@ REST_FRAMEWORK = {
     )
 }
 
+
+#将用户模型指向我们扩展的用户model
 AUTH_USER_MODEL='users.UserProfile'
+
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+    
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,7 +141,11 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+# USE_I18N = True
+# USE_L10N = True
+# USE_TZ = False 
 
 
 # Static files (CSS, JavaScript, Images)

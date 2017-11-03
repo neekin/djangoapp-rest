@@ -20,11 +20,13 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework import routers
 # from rest_framework.authtoken import views
 from rest_framework_jwt.views import obtain_jwt_token
-from users.views import UserProfileListViewset
+# from users.views import UserProfileListViewset
+from users.views  import VerifyCodeViewset,UserViewset
 from details.views import DetailListViewset
 
 router = routers.DefaultRouter()
-router.register(r'users', UserProfileListViewset)
+router.register(r'codes', VerifyCodeViewset,base_name='codes')
+router.register(r'users', UserViewset,base_name='users')
 router.register(r'details', DetailListViewset)
 
 
