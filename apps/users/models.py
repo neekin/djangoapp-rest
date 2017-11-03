@@ -35,3 +35,7 @@ class VerifyCode(models.Model):
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     codeType = models.CharField(max_length=6, choices=(
         ('reg', '注册'), ('reset', '忘记密码')), default='reg', verbose_name='类型')
+        
+    class Meta:
+        verbose_name = '验证码'
+        verbose_name_plural = verbose_name    
